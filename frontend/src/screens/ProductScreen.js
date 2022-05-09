@@ -35,7 +35,7 @@ const { loading, error, product } = productDetails;
 
 useEffect(() => {
   //dispatchEvent(detailsProduct(productId));
-  dispatch(detailsProduct(productId));
+  dispatch(detailsProduct(productId ));
 }, [dispatch, productId]);
 
 const addToCartHandler = () => {
