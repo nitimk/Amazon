@@ -11,13 +11,14 @@ export default function SigninScreen(props) {
     const Navigate = useNavigate();
     const location = useLocation();
     const redirect = location.search ? location.search.split("=")[1] : "/";
-  
+
     const userSignin = useSelector((state) => state.userSignin);
     const { userInfo, loading,error } = userSignin;
-  
+
      const dispatch = useDispatch();
   const submitHandler = (e) => {
     e.preventDefault();
+   // TODO: signin action
    dispatch(signin(email, password));
   };
   useEffect(() => {
@@ -62,6 +63,7 @@ export default function SigninScreen(props) {
         <div>
           <label />
           <div>
+            
             New customer? <Link to={`/register?redirect=${redirect}`}>Create you account</Link>
           </div>
         </div>

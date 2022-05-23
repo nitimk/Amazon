@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams, useLocation, Link, useNavigate } from "react-router-dom";
 import { addToCart, removeFromCart } from "../actions/cartActions";
 import MessageBox from "../components/MessageBox";
+
 export default function CartScreen() {
   const { productId } = useParams();
   const location = useLocation();
@@ -20,13 +21,13 @@ export default function CartScreen() {
       dispatch(addToCart(productId, qty));
     }
   }, [dispatch, productId, qty]);
+
   const removeFromCartHandler = (id) => {
     //delete action
     dispatch(removeFromCart(id));
   };
 
   const checkoutHandler = () => {
-    //navigate("/signin?redirect=shipping");
     if (userInfo) {
       navigate("/shipping");
     } else {
